@@ -1,27 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lists</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @lists.each do |list| %>
-      <tr>
-        <td><%= list.name %></td>
-        <td><%= link_to 'Show', list %></td>
-        <td><%= link_to 'Edit', edit_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="chapter-sortable connectedSortable" style="cursor: grab;">
+  <% @lists.each do |list| %>
+    <%= content_tag "div", id: "list-#{list.id}", data: { model_name: list.class.name.underscore, update_url: list_sort_path(list)} do %>
+      <%= render 'lists/list_preview', list: list %>
+      <div class="lesson-sortable connectedSortable" style="cursor: grab;">
+        <% list.tasks.rank(:row_order).each do |task| %>
+          <%= content_tag "div", id: "task-#{task.id}", data: { model_name: task.class.name.underscore, update_url: list_task_sort_path(list, task)} do %>
+            <%= render 'tasks/task_preview', task: task %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  <% end %>
+</div>
 
 <br>
 
 <%= link_to 'New List', new_list_path %>
+
+<%= link_to 'New Task', new_task_path %>

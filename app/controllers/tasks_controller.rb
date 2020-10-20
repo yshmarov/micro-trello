@@ -1,6 +1,13 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
+  def sort
+    #@list = List.find(params[:list_id])
+    @task = Task.find(params[:task_id])
+    @task.update(task_params)
+    render body: nil
+  end
+
   # GET /tasks
   # GET /tasks.json
   def index
@@ -69,6 +76,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:name, :list_id)
+      params.require(:task).permit(:name, :list_id, :row_order_position)
     end
 end

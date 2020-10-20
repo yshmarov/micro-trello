@@ -1,6 +1,12 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
+  def sort
+    @list = List.find(params[:list_id])
+    @list.update(list_params)
+    render body: nil
+  end
+
   # GET /lists
   # GET /lists.json
   def index
@@ -69,6 +75,6 @@ class ListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def list_params
-      params.require(:list).permit(:name)
+      params.require(:list).permit(:name, :row_order_position)
     end
 end
