@@ -1,24 +1,16 @@
-# README
+# Mini trello.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Features:
 
-Things you may want to cover:
+* Create lists
+* Create tasks
+* Sort lisks and tasks
 
-* Ruby version
+## Stack:
 
-* System dependencies
+* RoR 6
+* Postgresql
+* jquery-ui
+* gem ranked-model
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![sorting demo](https://i.stack.imgur.com/t3qwI.gif)
