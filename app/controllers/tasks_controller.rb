@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(list_params)
+    if @task.update(task_params)
       redirect_to lists_url, notice: 'Task was successfully updated.'
     else
       render :edit
