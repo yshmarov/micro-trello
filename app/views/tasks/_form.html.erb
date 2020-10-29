@@ -17,8 +17,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :list_id %>
-    <%= form.text_field :list_id %>
+    <%= form.hidden_field :list_id, {value: @task.list_id || params[:list_id]} %>
   </div>
 
   <div class="actions">

@@ -4,6 +4,7 @@
   <% @lists.each do |list| %>
     <%= content_tag "div", id: "list-#{list.id}", data: { id: list.id, model_name: list.class.name.underscore, update_url: list_sort_path(list)} do %>
       <%= render 'lists/list_preview', list: list %>
+
       <div class="lesson-sortable" style="cursor: grab; min-height: 10px;">
         <% list.tasks.rank(:row_order).each do |task| %>
           <%= content_tag "div", id: "task-#{task.id}", data: { model_name: task.class.name.underscore, update_url: list_task_sort_path(list, task)} do %>
@@ -11,6 +12,9 @@
           <% end %>
         <% end %>
       </div>
+
+      <%= link_to 'New Task', new_task_path(list_id: list.id) %>
+
     <% end %>
   <% end %>
 </div>
@@ -19,4 +23,3 @@
 
 <%= link_to 'New List', new_list_path %>
 
-<%= link_to 'New Task', new_task_path %>
