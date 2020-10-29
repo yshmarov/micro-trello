@@ -1,10 +1,9 @@
-<b>
-  Task Id:
-  <%= task.id %>
-</b>
-List Id:
-<%= task.list.id %>
-Title:
+<%= task.row_order_rank + 1 %>
+
+<strong>
 <%= task.name %>
-Order:
-<%= task.row_order_rank %>
+</strong>
+
+
+<%= link_to "Edit", edit_task_path(task) %>
+<%= link_to "Destroy", task, method: :delete, data: { confirm: 'Are you sure?' } %>

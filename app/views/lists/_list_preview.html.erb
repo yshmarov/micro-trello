@@ -1,12 +1,12 @@
 <div style="background-color:Gray;">
-  
-<b>
-list Id:
-<%= list.id %>
-</b>
-Title:
+
+<%= list.row_order_rank + 1 %>
+
+<strong>
 <%= list.name %>
-Order:
-<%= list.row_order_rank %>
+</strong>
+
+<%= link_to "Edit", edit_list_path(list) %>
+<%= link_to "Destroy", list, method: :delete, data: { confirm: 'Are you sure?' } %>
 
 </div>
