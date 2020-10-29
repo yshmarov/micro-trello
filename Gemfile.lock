@@ -172,7 +172,6 @@ DEPENDENCIES
   ranked-model
   sass-rails (>= 6)
   turbolinks (~> 5)
-  tzinfo-data
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
 
